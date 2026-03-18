@@ -46,7 +46,7 @@ export async function GET(req: NextRequest) {
       .limit(1)
       .get();
 
-    let keywordData: { id: string; [key: string]: any };
+    let keywordData: { id: string; [key: string]: string };
     if (keywordSnapshot.empty) {
       // b. If no keywords, generate new ones
       const researchPrompt = `Generate 5 SEO keywords for a blog in the niche "${blogData.niche}". Return as a comma separated list.`;

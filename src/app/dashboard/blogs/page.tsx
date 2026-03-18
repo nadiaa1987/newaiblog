@@ -31,7 +31,7 @@ interface Blog {
   bloggerEmail: string;
   niche: string;
   userId: string;
-  createdAt: any;
+  createdAt: { toDate: () => Date };
 }
 
 export default function BlogsPage() {

@@ -70,7 +70,7 @@ export const pollinations = {
       // Attempt to parse JSON from the response
       const jsonStr = response.match(/\{[\s\S]*\}/)?.[0] || response;
       return JSON.parse(jsonStr) as AIResponse;
-    } catch (e: unknown) {
+    } catch (e) {
       console.error("Failed to parse AI response as JSON:", response);
       // Fallback: return raw response if parsing fails
       return {
@@ -95,7 +95,7 @@ export const pollinations = {
     try {
       const jsonStr = response.match(/\{[\s\S]*\}/)?.[0] || response;
       return JSON.parse(jsonStr) as Record<string, string[]>;
-    } catch (e: unknown) {
+    } catch (e) {
       console.error("Failed to parse clustering response:", response);
       return { "General": keywords };
     }

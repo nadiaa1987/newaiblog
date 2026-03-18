@@ -261,7 +261,7 @@ export default function ArticleGeneratorPage() {
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-2">Ready to generate?</h3>
               <p className="text-slate-500 max-w-md">
-                Select a keyword from the sidebar and click "Generate Article" to see the magic happen.
+                Select a keyword from the sidebar and click &quot;Generate Article&quot; to see the magic happen.
               </p>
             </div>
           )}
