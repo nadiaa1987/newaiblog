@@ -7,17 +7,23 @@ const firebaseAdminConfig = {
 };
 
 if (!admin.apps.length) {
-  if (firebaseAdminConfig.projectId && firebaseAdminConfig.clientEmail && firebaseAdminConfig.privateKey) {
+  const { projectId, clientEmail, privateKey } = firebaseAdminConfig;
+  
+  if (projectId && clientEmail && privateKey && privateKey.includes("BEGIN PRIVATE KEY")) {
     try {
       admin.initializeApp({
-        credential: admin.credential.cert(firebaseAdminConfig as admin.ServiceAccount),
-        databaseURL: `https://${process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID}.firebaseio.com`,
+        credential: admin.credential.cert({
+          projectId,
+          clientEmail,
+          privateKey,
+        }),
+        databaseURL: `https://${projectId}.firebaseio.com`,
       });
     } catch (error) {
-      console.error("Firebase admin initialization error", error);
+      console.error("Firebase admin initialization error:", error);
     }
   } else {
-    console.warn("Firebase admin variables are missing. Skipping initialization during build.");
+    console.warn("Firebase Admin environment variables are missing or invalid. Skipping initialization.");
   }
 }
 

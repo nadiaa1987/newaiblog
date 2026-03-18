@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { pollinations } from "@/lib/pollinations";
 
+export const dynamic = "force-dynamic";
+
 export async function POST(req: NextRequest) {
   try {
     const { keyword, niche, language } = await req.json();

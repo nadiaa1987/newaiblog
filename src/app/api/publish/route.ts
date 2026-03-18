@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { blogger } from "@/lib/blogger";
 
+export const dynamic = "force-dynamic";
+
 export async function POST(req: NextRequest) {
   try {
     const { bloggerEmail, title, content, labels } = await req.json();
