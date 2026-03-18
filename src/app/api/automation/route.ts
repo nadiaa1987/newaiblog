@@ -46,7 +46,7 @@ export async function GET(req: NextRequest) {
       .limit(1)
       .get();
 
-    let keywordData: any;
+    let keywordData: { id: string; [key: string]: any };
     if (keywordSnapshot.empty) {
       // b. If no keywords, generate new ones
       const researchPrompt = `Generate 5 SEO keywords for a blog in the niche "${blogData.niche}". Return as a comma separated list.`;
@@ -115,8 +115,8 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json({ success: true, article: article.title });
 
-  } catch (error: any) {
+  } catch (error) {
     console.error("Automation Workflow Error:", error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({ error: (error as Error).message }, { status: 500 });
   }
 }

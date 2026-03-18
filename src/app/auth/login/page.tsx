@@ -22,8 +22,8 @@ export default function LoginPage() {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       router.push("/dashboard");
-    } catch (err: any) {
-      setError(err.message || "Failed to login. Please check your credentials.");
+    } catch (err) {
+      setError((err as Error).message || "Failed to login. Please check your credentials.");
     } finally {
       setLoading(false);
     }

@@ -26,7 +26,7 @@ interface Activity {
   action: string;
   target: string;
   blogName: string;
-  createdAt: any;
+  createdAt: { toDate: () => Date };
 }
 
 interface Automation {

@@ -22,8 +22,8 @@ export default function SignupPage() {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       router.push("/dashboard");
-    } catch (err: any) {
-      setError(err.message || "Failed to create account. Please check your information.");
+    } catch (err) {
+      setError((err as Error).message || "Failed to create account. Please check your information.");
     } finally {
       setLoading(false);
     }

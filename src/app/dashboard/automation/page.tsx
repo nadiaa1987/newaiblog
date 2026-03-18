@@ -40,8 +40,8 @@ interface Automation {
   blogId: string;
   postsPerDay: number;
   status: "active" | "paused";
-  lastRun: any;
-  nextRun: any;
+  lastRun: { toDate: () => Date } | null;
+  nextRun: { toDate: () => Date } | null;
   userId: string;
 }
 

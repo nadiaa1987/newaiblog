@@ -36,7 +36,7 @@ interface Keyword {
   niche: string;
   search_volume: number;
   difficulty: number;
-  createdAt: any;
+  createdAt: { toDate: () => Date };
 }
 
 interface Blog {
