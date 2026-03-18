@@ -7,13 +7,17 @@ const firebaseAdminConfig = {
 };
 
 if (!admin.apps.length) {
-  try {
-    admin.initializeApp({
-      credential: admin.credential.cert(firebaseAdminConfig),
-      databaseURL: `https://${process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID}.firebaseio.com`,
-    });
-  } catch (error) {
-    console.error("Firebase admin initialization error", error);
+  if (firebaseAdminConfig.projectId && firebaseAdminConfig.clientEmail && firebaseAdminConfig.privateKey) {
+    try {
+      admin.initializeApp({
+        credential: admin.credential.cert(firebaseAdminConfig as admin.ServiceAccount),
+        databaseURL: `https://${process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID}.firebaseio.com`,
+      });
+    } catch (error) {
+      console.error("Firebase admin initialization error", error);
+    }
+  } else {
+    console.warn("Firebase admin variables are missing. Skipping initialization during build.");
   }
 }
 
