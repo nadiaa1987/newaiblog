@@ -60,7 +60,7 @@ export default function BlogsPage() {
 
   const handleAddBlog = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!user || !newBlog.name || !newBlog.url || !newBlog.bloggerEmail) return;
+    if (!user || !newBlog.name || !newBlog.url || !newBlog.bloggerEmail || !newBlog.niche) return;
 
     setLoading(true);
     try {

@@ -17,7 +17,6 @@ import {
 import { 
   Plus, 
   Trash2, 
-  Filter, 
   Search, 
   CheckCircle, 
   Circle, 

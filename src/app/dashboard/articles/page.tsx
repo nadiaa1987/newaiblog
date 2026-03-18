@@ -15,13 +15,10 @@ import {
 } from "firebase/firestore";
 import { 
   FileText, 
-  Image as ImageIcon, 
-  Send, 
-  Search, 
-  CheckCircle, 
   Loader2, 
   Eye, 
-  ExternalLink 
+  Search, 
+  Send 
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import axios from "axios";

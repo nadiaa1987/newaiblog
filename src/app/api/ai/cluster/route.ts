@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
 
     const clusters = await pollinations.clusterKeywords(keywords);
     return NextResponse.json(clusters);
-  } catch (error: any) {
+  } catch (error) {
     console.error("AI Clustering API Error:", error);
     return NextResponse.json({ error: (error as Error).message }, { status: 500 });
   }

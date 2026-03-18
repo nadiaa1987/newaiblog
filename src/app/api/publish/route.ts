@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
 
     const result = await blogger.publishToBlogger(bloggerEmail, title, content, labels);
     return NextResponse.json(result);
-  } catch (error: any) {
+  } catch (error) {
     console.error("Publish API Error:", error);
     return NextResponse.json({ error: (error as Error).message }, { status: 500 });
   }

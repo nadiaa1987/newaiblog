@@ -99,7 +99,7 @@ export default function DashboardPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-bold text-slate-900">Welcome back, {user?.email?.split('@')[0]}!</h1>
+        <h1 className="text-2xl font-bold text-slate-900">Welcome back, {user?.displayName || user?.email?.split('@')[0]}!</h1>
         <p className="text-slate-500">Here's what's happening with your AI Blogger Studio.</p>
       </div>
 

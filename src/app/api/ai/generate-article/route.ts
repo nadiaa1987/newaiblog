@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
     const imageUrl = await pollinations.generateImage(`${keyword} in ${niche} niche professional photography`);
 
     return NextResponse.json({ article, imageUrl });
-  } catch (error: any) {
+  } catch (error) {
     console.error("AI Generation API Error:", error);
     return NextResponse.json({ error: (error as Error).message }, { status: 500 });
   }

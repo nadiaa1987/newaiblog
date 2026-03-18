@@ -4,7 +4,6 @@ import { useState } from "react";
 import { 
   Palette, 
   Download, 
-  Eye, 
   Monitor, 
   Smartphone, 
   Search, 

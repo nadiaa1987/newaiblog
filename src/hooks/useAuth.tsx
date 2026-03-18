@@ -4,8 +4,6 @@ import { useState, useEffect, createContext, useContext } from "react";
 import { 
   onAuthStateChanged, 
   User, 
-  signInWithEmailAndPassword, 
-  createUserWithEmailAndPassword, 
   signOut 
 } from "firebase/auth";
 import { auth } from "@/lib/firebase";
